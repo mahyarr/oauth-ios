@@ -80,6 +80,10 @@ NSString *_host;
     _oauth = [[OAuthIO alloc] initWithKey:_key];
     _rootViewController = [[[[UIApplication sharedApplication] delegate] window] rootViewController];
     
+    while (_rootViewController.presentedViewController) {
+        _rootViewController = _rootViewController.presentedViewController;
+    }
+    
     if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7)
         _navigationBarHeight = NAVIGATION_BAR_HEIGHT_IOS7_OR_LATER;
     else
