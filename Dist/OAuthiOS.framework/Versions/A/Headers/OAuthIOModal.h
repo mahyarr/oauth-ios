@@ -25,6 +25,8 @@
 @protocol OAuthIODelegate <NSObject>
 - (void)didReceiveOAuthIOResponse:(OAuthIORequest *)request;
 - (void)didFailWithOAuthIOError:(NSError *)error;
+
+@optional
 - (void)didReceiveOAuthIOCode:(NSString *)code;
 - (void)didAuthenticateServerSide:(NSString *)body andResponse:(NSURLResponse *) response;
 - (void)didFailAuthenticationServerSide:(NSString *)body andResponse:(NSURLResponse *)response andError:(NSError *)error;
